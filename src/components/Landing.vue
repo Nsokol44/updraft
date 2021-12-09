@@ -1,44 +1,106 @@
 <template>
   <!-- New Box -->
-  <v-container grid-list-lg>
-    <v-row class="mx-3" justify="space-between">
-      <v-col v-for="(item, n) in projects" :key="n.id" cols="4">
-        <div class="pt-3">
-          <v-card class="mx-auto" max-width="344">
-            <v-img :src="'/' + item.src" height="200px"></v-img>
 
-            <v-card-title>
-              {{ item.name }}
+
+<div class="pt-3">
+
+  <v-card
+    max-width="1200"
+    class="mx-auto"
+  >
+
+    <v-app-bar
+      dark
+      color="blue lighten-2"
+    >
+
+      <v-toolbar-title>The Updraft Ecosystem</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+    </v-app-bar>
+
+    <v-container>
+      <v-row dense>
+        <!-- <v-col>
+          <v-card
+            color="#385F73"
+            dark
+          >
+            <v-card-title class="text-h5">
+              Unlimited music now
             </v-card-title>
 
-            <v-card-subtitle> {{item.subtext}} </v-card-subtitle>
+            <v-card-subtitle>Listen to your favorite artists and albums whenever and wherever, online and offline.</v-card-subtitle>
 
             <v-card-actions>
-              <v-btn color="orange lighten-2" text> Explore </v-btn>
-
-              <v-spacer></v-spacer>
-
-              <v-btn icon @click="show = !show">
-                <v-icon>{{
-                  show ? "mdi-chevron-up" : "mdi-chevron-down"
-                }}</v-icon>
+              <v-btn text>
+                Listen Now
               </v-btn>
             </v-card-actions>
-
-            <v-expand-transition>
-              <div v-show="show">
-                <v-divider></v-divider>
-
-                <v-card-text>
-                  {{ item.text }}
-                </v-card-text>
-              </div>
-            </v-expand-transition>
           </v-card>
-        </div>
-      </v-col>
-    </v-row>
-  </v-container>
+        </v-col> -->
+
+        <v-col
+          v-for="(item, i) in projects"
+          :key="i"
+          
+        >
+          <v-card
+            :color="item.color"
+            dark
+          >
+            <div class="d-flex flex-no-wrap justify-space-between">
+              <div>
+                <v-card-title
+                  class="text-h5"
+                  v-text="item.name"
+                ></v-card-title>
+
+                <v-card-subtitle v-text="item.subtext"></v-card-subtitle>
+
+                <v-card-actions>
+                  <v-btn
+                    v-if="item.name === 'play music'"
+                    class="ml-2 mt-3"
+                    fab
+                    icon
+                    height="40px"
+                    right
+                    width="40px"
+                  >
+                    <v-icon>mdi-play</v-icon>
+                  </v-btn>
+
+                  <v-btn
+                    v-else
+                    class="ml-2 mt-5"
+                    outlined
+                    rounded
+                    small
+                  >
+                    See More
+                  </v-btn>
+                </v-card-actions>
+              </div>
+
+              <v-avatar
+                class="ma-3"
+                size="125"
+                tile
+              >
+                <v-img :src="item.src"></v-img>
+              </v-avatar>
+            </div>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-container>
+  </v-card>
+
+
+
+  </div>
 </template>
 
 
@@ -50,45 +112,27 @@ export default {
       {
         name: "Found Spatial",
         src: "found_rev-01.jpeg",
-        subtext: "Drones, GIS, and Spatial Analytics",
-        text: "Found Spatial is a platform dedicated to enhancing spatial perspectives, interactions, and thinking."
+        subtext: "Drones, GIS, Analytics, and Spatial Perspectives",
+        text: "Found Spatial is a platform dedicated to enhancing spatial perspectives, interactions, and thinking.",
+        flex: 4,
       },
       {
         name: "Fulmin Energy",
         src: "SocialMedia_Logo1.jpg",
         subtext: "Saltwater Batteries for the Future",
-        text: "Fulmin Energy seeks to bring new forms of energy storage and generation to market."
-
+        text: "Fulmin Energy seeks to bring new forms of energy storage and generation to market.",
+        flex: 4,
       },
       {
         name: "Healbot Games",
-        src: "Healbot_Logo_HealbotOnly.png",
-        subtext: "Games that Engage",
-        text: "Healbot Games aims to create engaging and fun user experiences."
-
+        src: "Healbot_Logo_1e.png",
+        subtext: "Revolutionary Games that Engage",
+        text: "Healbot Games aims to create engaging and fun user experiences.",
+        flex: 4,
       },
     ],
     show: false,
-
-    items: [
-      {
-        color: "#1F7087",
-        src: "https://cdn.vuetifyjs.com/images/cards/foster.jpg",
-        title: "Supermodel",
-        artist: "Foster the People",
-      },
-      {
-        color: "#952175",
-        src: "https://cdn.vuetifyjs.com/images/cards/halcyon.png",
-        title: "Halcyon Days",
-        artist: "Ellie Goulding",
-      },
-    ],
   }),
-  methods: {
-    getImgUrl: function (path) {
-      return require("../assets/" + path);
-    },
-  },
+
 };
 </script>

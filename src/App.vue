@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar
       absolute
-      color="grey lighten-4"
+      color="grey darken-4"
       dark
       hide-on-scroll
       scroll-target="#scrolling-techniques-4"
@@ -22,14 +22,15 @@
 
       <v-spacer></v-spacer>
 
-      <v-btn elevation="2" icon outlined></v-btn>
+      <v-btn elevation="2" icon outlined color="white"> Login </v-btn>
 
       <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
+        <v-icon color="white">mdi-dots-vertical</v-icon>
       </v-btn>
     </v-app-bar>
 
     <v-content>
+      <Bubbles />
       <Landing />
       <ToDoList />
     </v-content>
@@ -55,17 +56,22 @@
         </v-col>
       </v-row>
     </v-footer>
+
+
+
   </v-app>
 </template>
 
 <script>
 import ToDoList from "./components/ToDoList.vue";
 import Landing from "./components/Landing.vue";
+import Bubbles from "./components/Bubbles.vue";
 
 export default {
   name: "App",
 
   components: {
+    Bubbles,
     ToDoList,
     Landing,
   },
@@ -76,7 +82,6 @@ export default {
       "Home",
       "About Us",
       "Team",
-      "Services",
       "Contact Us",
       "Youtube",
     ],
