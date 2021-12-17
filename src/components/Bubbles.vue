@@ -2,19 +2,34 @@
 
 
   <v-row class="text-center mt-3" justify="center">
-    <v-col v-for="align in alignments" :key="align" :align-self="align">
-    
-    <v-card outlined class="rounded-circle">
-      <img v-for="(bble, i) in bubbly" :key="i" cols="3" md="3"
+    <v-col v-for="align in alignments" :key="align" :align-self="align" >
+        
+    <div v-if="align === 'center'" > 
+    <v-card  class="rounded-circle my-8" v-for="(bble, i) in bubbly" :key="i" md="3"  >
+      <img 
+        class="rounded-circle"
+        :src="'/' + bble.src"
+        alt="image"
+        height="200px"
+        width="200px"
+        
+      />
+    </v-card>
+    </div>
+
+
+    <div v-else>
+    <v-card outlined class="rounded-circle"  v-for="(bble, i) in bubbly" :key="i" md="3" >
+      <img 
         class="rounded-circle"
         :src="'/' + bble.src"
         alt="image"
         height="200px"
         width="200px"
       />
+      </v-card>
+    </div>
 
-      <div></div>
-    </v-card>
     </v-col>
   </v-row>
 

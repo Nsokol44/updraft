@@ -30,7 +30,7 @@
     </v-app-bar>
 
     <v-content>
-      <Bubbles />
+      <MainInfo />
       <Landing />
       <ToDoList />
     </v-content>
@@ -65,15 +65,15 @@
 <script>
 import ToDoList from "./components/ToDoList.vue";
 import Landing from "./components/Landing.vue";
-import Bubbles from "./components/Bubbles.vue";
+import MainInfo from "./components/MainInfo.vue";
 
 export default {
   name: "App",
 
   components: {
-    Bubbles,
     ToDoList,
     Landing,
+    MainInfo,
   },
 
   data: () => ({
